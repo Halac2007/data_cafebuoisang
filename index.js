@@ -424,6 +424,72 @@ app.get('/cong-nghe-40', async (req, res) => {
 
 /*-----------data full kNS------------*/
 
+/*-----------------gộp data ASSK------------------------*/
+
+app.get('/an-sach-song-khoe/random', async (req, res) => {
+  const assk = await axios(`https://data-cafebuoisang.herokuapp.com/an-sach-song-khoe`)
+  const res1 = await axios(`https://data-cafebuoisang.herokuapp.com/an-sach-song-khoe/page2`)
+
+  const res2 = await axios(`https://data-cafebuoisang.herokuapp.com/an-sach-song-khoe/page3`)
+
+  const asskhome = assk.data
+  const asskpage2 = res1.data
+  const asskpage3 = res2.data
+
+  const newPage1 = asskpage2.splice(20)
+
+  const newPage2 = asskpage3.splice(20)
+
+  const arrNews = [...asskhome, ...asskpage2, ...asskpage3]
+
+  const arrSlice = arrNews.splice(1, 4)
+
+  res.send(arrNews)
+})
+
+/*-----------------gộp data KNS------------------------*/
+
+app.get('/ky-nguyen-so/random', async (req, res) => {
+  const homekns = await axios(`https://data-cafebuoisang.herokuapp.com/ky-nguyen-so`)
+  const respRepos = await axios(`https://data-cafebuoisang.herokuapp.com/nhip-cong-nghe`)
+  const res1 = await axios(`https://data-cafebuoisang.herokuapp.com/cong-nghe-40`)
+  const res2 = await axios(`https://data-cafebuoisang.herokuapp.com/tuyet-chieu`)
+  const res3 = await axios(`https://data-cafebuoisang.herokuapp.com/thiet-bi-so`)
+  const res4 = await axios(`https://data-cafebuoisang.herokuapp.com/kinh-doanh-online`)
+
+  const pagekns = homekns.data
+  const nhipcongnghe = respRepos.data
+
+  const congnghe40 = res1.data
+  const tuyetchieu = res2.data
+  const thietbiso = res3.data
+
+  const kinhdoanh = res4.data
+
+  const arrNews = [...pagekns, ...nhipcongnghe, ...tuyetchieu, ...thietbiso, ...congnghe40, ...kinhdoanh]
+
+  res.send(arrNews)
+})
+
+/*-----------------gộp data xe------------------------*/
+
+app.get('/xe-va-luat/random', async (req, res) => {
+  const page1 = await axios(`https://data-cafebuoisang.herokuapp.com/xe-va-luat`)
+  const page2 = await axios(`https://data-cafebuoisang.herokuapp.com/xe-va-luat/page2`)
+  const page3 = await axios(`https://data-cafebuoisang.herokuapp.com/xe-va-luat/page3`)
+
+  const xepage1 = page1.data
+  const xepage2 = page2.data
+  const xepage3 = page3.data
+
+  const newPage1 = xepage2.splice(15)
+
+  const newPage3 = xepage3.splice(15)
+
+  const arrNews = [...xepage1, ...xepage2, ...xepage3]
+  const arrSlice = arrNews.splice(1, 4)
+  res.send(arrNews)
+})
 // /*-------------------------*/
 
 const port = process.env.PORT || 4000
