@@ -7,7 +7,7 @@ const app = express()
 app.use(cors())
 
 /*---------------data plo----------------*/
-app.get('/.bemai/api', async (req, res) => {
+app.get('/', async (req, res) => {
   got('https://plo.vn/')
     .then((response) => {
       const html = response.body
@@ -37,7 +37,7 @@ app.get('/.bemai/api', async (req, res) => {
 })
 
 /*---------------search ---------------*/
-app.get('/.bemai/api/tim-kiem/:key', async (req, res) => {
+app.get('/tim-kiem/:key', async (req, res) => {
   const { key } = req.params
 
   got(`https://plo.vn/tim-kiem/?q=${key}`)
@@ -71,7 +71,7 @@ app.get('/.bemai/api/tim-kiem/:key', async (req, res) => {
 
 /*-------------data assk---------------*/
 
-app.get('/.bemai/api/an-sach-song-khoe', async (req, res) => {
+app.get('/an-sach-song-khoe', async (req, res) => {
   got('https://plo.vn/an-sach-song-khoe/')
     .then((response) => {
       const html = response.body
@@ -112,7 +112,7 @@ app.get('/.bemai/api/an-sach-song-khoe', async (req, res) => {
 
 /*-------------data assk page 2---------------*/
 
-app.get('/.bemai/api/an-sach-song-khoe/page2', async (req, res) => {
+app.get('/an-sach-song-khoe/page2', async (req, res) => {
   got('https://plo.vn/an-sach-song-khoe/?trang=2')
     .then((response) => {
       const html = response.body
@@ -141,7 +141,7 @@ app.get('/.bemai/api/an-sach-song-khoe/page2', async (req, res) => {
 })
 /*-------------data assk page 3---------------*/
 
-app.get('/.bemai/api/an-sach-song-khoe/page3', async (req, res) => {
+app.get('/an-sach-song-khoe/page3', async (req, res) => {
   got('https://plo.vn/an-sach-song-khoe/?trang=3')
     .then((response) => {
       const html = response.body
@@ -171,7 +171,7 @@ app.get('/.bemai/api/an-sach-song-khoe/page3', async (req, res) => {
 
 /*---------data xe và luật-------------------*/
 
-app.get('/.bemai/api/xe-va-luat', async (req, res) => {
+app.get('/xe-va-luat', async (req, res) => {
   got('https://plo.vn/xe-va-luat/')
     .then((response) => {
       const html = response.body
@@ -210,7 +210,7 @@ app.get('/.bemai/api/xe-va-luat', async (req, res) => {
 
 /*----------data xe và luật page 2-----------*/
 
-app.get('/.bemai/api/xe-va-luat/page2', async (req, res) => {
+app.get('/xe-va-luat/page2', async (req, res) => {
   got('https://plo.vn/xe-va-luat/?trang=2')
     .then((response) => {
       const html = response.body
@@ -249,7 +249,7 @@ app.get('/.bemai/api/xe-va-luat/page2', async (req, res) => {
 
 /*----------data xe và luật page 3-----------*/
 
-app.get('/.bemai/api/xe-va-luat/page3', async (req, res) => {
+app.get('/xe-va-luat/page3', async (req, res) => {
   got('https://plo.vn/xe-va-luat/?trang=3')
     .then((response) => {
       const html = response.body
@@ -277,7 +277,7 @@ app.get('/.bemai/api/xe-va-luat/page3', async (req, res) => {
     })
 })
 /*-------data kỷ nguyên số home--------------*/
-app.get('/.bemai/api/ky-nguyen-so', async (req, res) => {
+app.get('/ky-nguyen-so', async (req, res) => {
   got('https://kynguyenso.plo.vn/')
     .then((response) => {
       const html = response.body
@@ -306,7 +306,7 @@ app.get('/.bemai/api/ky-nguyen-so', async (req, res) => {
 
 /*------------data nhịp công nghệ-----------------*/
 
-app.get('/.bemai/api/nhip-cong-nghe', async (req, res) => {
+app.get('/nhip-cong-nghe', async (req, res) => {
   got('https://kynguyenso.plo.vn/ky-nguyen-so/nhip-cong-nghe/')
     .then((response) => {
       const html = response.body
@@ -337,7 +337,7 @@ app.get('/.bemai/api/nhip-cong-nghe', async (req, res) => {
 })
 
 /*---------------------data thiết bị sô----------------*/
-app.get('/.bemai/api/thiet-bi-so', async (req, res) => {
+app.get('/thiet-bi-so', async (req, res) => {
   got('https://kynguyenso.plo.vn/ky-nguyen-so/thiet-bi-so/')
     .then((response) => {
       const html = response.body
@@ -367,7 +367,7 @@ app.get('/.bemai/api/thiet-bi-so', async (req, res) => {
 
 /*-----------------data tuyệt chiêu------------------*/
 
-app.get('/.bemai/api/tuyet-chieu', async (req, res) => {
+app.get('/tuyet-chieu', async (req, res) => {
   got('https://kynguyenso.plo.vn/ky-nguyen-so/tuyet-chieu/')
     .then((response) => {
       const html = response.body
@@ -397,7 +397,7 @@ app.get('/.bemai/api/tuyet-chieu', async (req, res) => {
 
 /*--------------------data kinh doanh online------------------------*/
 
-app.get('/.bemai/api/kinh-doanh-online', async (req, res) => {
+app.get('/kinh-doanh-online', async (req, res) => {
   got('https://kynguyenso.plo.vn/ky-nguyen-so/kinhdoanhonline/')
     .then((response) => {
       const html = response.body
@@ -427,7 +427,7 @@ app.get('/.bemai/api/kinh-doanh-online', async (req, res) => {
     })
 })
 /*----------------------data công nghệ 40--------------------*/
-app.get('/.bemai/api/cong-nghe-40', async (req, res) => {
+app.get('/cong-nghe-40', async (req, res) => {
   got('https://kynguyenso.plo.vn/ky-nguyen-so/cong-nghe/')
     .then((response) => {
       const html = response.body
@@ -459,7 +459,7 @@ app.get('/.bemai/api/cong-nghe-40', async (req, res) => {
 
 /*-----------------gộp data ASSK------------------------*/
 
-app.get('/.bemai/api/an-sach-song-khoe/random', async (req, res) => {
+app.get('/an-sach-song-khoe/random', async (req, res) => {
   const assk = await axios(`https://data-cafebuoisang.herokuapp.com/an-sach-song-khoe`)
   const res1 = await axios(`https://data-cafebuoisang.herokuapp.com/an-sach-song-khoe/page2`)
 
@@ -482,7 +482,7 @@ app.get('/.bemai/api/an-sach-song-khoe/random', async (req, res) => {
 
 /*-----------------gộp data KNS------------------------*/
 
-app.get('/.bemai/api/ky-nguyen-so/random', async (req, res) => {
+app.get('/ky-nguyen-so/random', async (req, res) => {
   const homekns = await axios(`https://data-cafebuoisang.herokuapp.com/ky-nguyen-so`)
   const respRepos = await axios(`https://data-cafebuoisang.herokuapp.com/nhip-cong-nghe`)
   const res1 = await axios(`https://data-cafebuoisang.herokuapp.com/cong-nghe-40`)
@@ -506,7 +506,7 @@ app.get('/.bemai/api/ky-nguyen-so/random', async (req, res) => {
 
 /*-----------------gộp data xe------------------------*/
 
-app.get('/.bemai/api/xe-va-luat/random', async (req, res) => {
+app.get('/xe-va-luat/random', async (req, res) => {
   const page1 = await axios(`https://data-cafebuoisang.herokuapp.com/xe-va-luat`)
   const page2 = await axios(`https://data-cafebuoisang.herokuapp.com/xe-va-luat/page2`)
   const page3 = await axios(`https://data-cafebuoisang.herokuapp.com/xe-va-luat/page3`)
