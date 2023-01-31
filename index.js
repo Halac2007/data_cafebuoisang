@@ -460,10 +460,10 @@ app.get('/cong-nghe-40', async (req, res) => {
 /*-----------------gộp data ASSK------------------------*/
 
 app.get('/an-sach-song-khoe/random', async (req, res) => {
-  const assk = await axios(`https://data-cafebuoisang.herokuapp.com/an-sach-song-khoe`)
-  const res1 = await axios(`https://data-cafebuoisang.herokuapp.com/an-sach-song-khoe/page2`)
+  const assk = await axios(`https://data-cafebuoisang.vercel.app/an-sach-song-khoe`)
+  const res1 = await axios(`https://data-cafebuoisang.vercel.app/an-sach-song-khoe/page2`)
 
-  const res2 = await axios(`https://data-cafebuoisang.herokuapp.com/an-sach-song-khoe/page3`)
+  const res2 = await axios(`https://data-cafebuoisang.vercel.app/an-sach-song-khoe/page3`)
 
   const asskhome = assk.data
   const asskpage2 = res1.data
@@ -483,23 +483,18 @@ app.get('/an-sach-song-khoe/random', async (req, res) => {
 /*-----------------gộp data KNS------------------------*/
 
 app.get('/ky-nguyen-so/random', async (req, res) => {
-  const homekns = await axios(`https://data-cafebuoisang.herokuapp.com/ky-nguyen-so`)
-  const respRepos = await axios(`https://data-cafebuoisang.herokuapp.com/nhip-cong-nghe`)
-  const res1 = await axios(`https://data-cafebuoisang.herokuapp.com/cong-nghe-40`)
-  const res2 = await axios(`https://data-cafebuoisang.herokuapp.com/tuyet-chieu`)
-  const res3 = await axios(`https://data-cafebuoisang.herokuapp.com/thiet-bi-so`)
-  const res4 = await axios(`https://data-cafebuoisang.herokuapp.com/kinh-doanh-online`)
+  const homekns = await axios(`https://data-cafebuoisang.vercel.app/ky-nguyen-so`)
+  const respRepos = await axios(`https://data-cafebuoisang.vercel.app/thiet-bi-so`)
+  const res1 = await axios(`https://data-cafebuoisang.vercel.app/tuyet-chieu`)
+  const res2 = await axios(`https://data-cafebuoisang.vercel.app/nhip-cong-nghe`)
 
   const pagekns = homekns.data
   const nhipcongnghe = respRepos.data
 
   const congnghe40 = res1.data
   const tuyetchieu = res2.data
-  const thietbiso = res3.data
 
-  const kinhdoanh = res4.data
-
-  const arrNews = [...pagekns, ...nhipcongnghe, ...tuyetchieu, ...thietbiso, ...congnghe40, ...kinhdoanh]
+  const arrNews = [...pagekns, ...nhipcongnghe, ...tuyetchieu, ...congnghe40]
 
   res.send(arrNews)
 })
@@ -507,9 +502,9 @@ app.get('/ky-nguyen-so/random', async (req, res) => {
 /*-----------------gộp data xe------------------------*/
 
 app.get('/xe-va-luat/random', async (req, res) => {
-  const page1 = await axios(`https://data-cafebuoisang.herokuapp.com/xe-va-luat`)
-  const page2 = await axios(`https://data-cafebuoisang.herokuapp.com/xe-va-luat/page2`)
-  const page3 = await axios(`https://data-cafebuoisang.herokuapp.com/xe-va-luat/page3`)
+  const page1 = await axios(`https://data-cafebuoisang.vercel.app/xe-va-luat`)
+  const page2 = await axios(`https://data-cafebuoisang.vercel.app/xe-va-luat/page2`)
+  const page3 = await axios(`https://data-cafebuoisang.vercel.app/xe-va-luat/page3`)
 
   const xepage1 = page1.data
   const xepage2 = page2.data
